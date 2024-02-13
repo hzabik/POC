@@ -20,7 +20,7 @@ When("I type {string} into simple search input", function (string) {
 
 Then("I see search results are cleared on TODAY | TOMORROW truck tab", function () {
     TodayTomorrowTrucksComponent.clearSearchButton.should("not.be.visible");
-    //Implement more assertions here
+    //Implement more assertions
 });
 
 Then("I see list of results for license plates {string}", function (string) {

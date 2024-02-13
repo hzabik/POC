@@ -19,7 +19,7 @@ Given("I am on TODAY | TOMORROW tab", function () {
 
 function authenticate() {
     setAmlbCookie();
-    getItxToken("hubertza@ext.inditex.com", "CzekoladowySorbet@1")
+    getItxToken(Cypress.env("authUser"),ypress.env("authPassword"))
         .then(res => {
             setItxCookie(res.tokenId);
         });

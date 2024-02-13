@@ -12,13 +12,4 @@ class TodayTomorrowTrucksComponent{
     }
 }
 
-class ScheduledTruckCard{
-    constructor(root){
-        this.root = root;
-    }
-    get licenseText(){
-        return this.root.find('[data-testid="scheduled-card-license"]').invoke('innerText');
-    }
-}
-
 export default new TodayTomorrowTrucksComponent();
