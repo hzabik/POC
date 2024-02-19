@@ -5,9 +5,14 @@ export function navigateToTodayTomorrowTab() {
     navigate('todayTomorrow');
 }
 
+export function navigateToCreateTruck() {
+    navigate('createTruck')
+}
+
 const endpoints = {
     current: '/web',
-    todayTomorrow: '/web/unloads/today-tomorrow'
+    todayTomorrow: '/web/unloads/today-tomorrow',
+    createTruck: '/web/unloads/new-truck',
 }
 function navigate(page) {
     authenticate();

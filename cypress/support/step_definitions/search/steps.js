@@ -4,7 +4,7 @@ import { assertSimpleSearchResultList,
     fillSimpleSearchInput, 
     openSimpleSearch, 
     assertTodayTomorrowTrucksFiltered,
-    assertClearSearchButtonNotExists } from "./functions";
+    assertClearSearchButtonNotExists } from "../../actions/search";
 
 Given("trucks are filtered by {string}", function (string) {
     openSimpleSearch();
