@@ -1,5 +1,5 @@
 import { Given } from "@badeball/cypress-cucumber-preprocessor";
-import { navigateToCurrentTab, navigateToTodayTomorrowTab,navigateToCreateTruck } from "../../actions/navigation";
+import { navigateToCurrentTab, navigateToTodayTomorrowTab,navigateToCreateTruck } from "../actions/navigation";
 
 
 Given("I am on CURRENT tab", navigateToCurrentTab);
