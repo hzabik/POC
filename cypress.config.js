@@ -21,6 +21,8 @@ module.exports = defineConfig({
     setupNodeEvents,
     baseUrl: 'https://comercial-pre.central.inditex.grp/rmumspa',
     env:{ 
+      authUser: "",
+      authPassword: "",
       openamurl: "https://auth-pre.inditex.com/openam/json/realms/root/realms/itxid/authenticate?authIndexType=service&authIndexValue=ldapService",
       openamdomain: "axpregfam01lb.central.inditex.grp",
       db: {

@@ -1,39 +1,25 @@
-import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor";
-import { assertSimpleSearchResultList, 
-    clickClearSearchButton, 
-    fillSimpleSearchInput, 
-    openSimpleSearch, 
-    assertTodayTomorrowTrucksFiltered,
-    assertClearSearchButtonNotExists } from "../actions/search";
+import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import {
+    assertSimpleSearchResultList,
+    fillSimpleSearchInput,
+    openSimpleSearch,
+} from "../actions/search";
+import { findTruckWithSingleOrder, findTruckWithSingleProvider } from "../actions/filters";
 
-Given("trucks are filtered by {string}", function (string) {
+
+When("I type intercepted truck {string} into simple search input", function (property) {
     openSimpleSearch();
-    fillSimpleSearchInput(`${string}{enter}`);
-    assertTodayTomorrowTrucksFiltered(string);
+    fillSimpleSearchInput(`${this.interceptedTruck[property]}`);
 });
 
-When("I click clear search button", function () {
-    clickClearSearchButton();
+Then("I see list of results for intercepted truck {string}", function (property) {
+    assertSimpleSearchResultList(this.interceptedTruck, property);
 });
 
-When("I type {string} into simple search input", function (string) {
-    openSimpleSearch();
-    fillSimpleSearchInput(string);
+When("I have intercepted truck with single provider", function () {
+    this.interceptedTruck = findTruckWithSingleProvider(this.interceptedTrucks);
 });
 
-Then("I see search results are cleared on TODAY | TOMORROW truck tab", function () {
-    assertClearSearchButtonNotExists();
-    //Implement more assertions
-});
-
-Then("I see list of results for license plates {string}", function (string) {
-    assertSimpleSearchResultList(string, " - Truck license plate");
-});
-
-Then("I see list of results for provider {string}", function (string) {
-    assertSimpleSearchResultList(string, "- Provider description");
-});
-
-Then("I see list of results for order {string}", function (string) {
-    assertSimpleSearchResultList(string, "- Order ID");
+When("I have intercepted truck with single order", function () {
+    this.interceptedTruck = findTruckWithSingleOrder(this.interceptedTrucks);
 });
